@@ -48,6 +48,13 @@
     
     font-weight: bold;
     color: white;
+
+    transition: color 300ms ease;
+}
+
+.bug .title-wrapper .title:hover {
+    color: rgb(172, 171, 171);
+    cursor: pointer;
 }
 
 .bug .status-wrapper {
