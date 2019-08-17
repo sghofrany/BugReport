@@ -1,0 +1,24 @@
+
+.all-bugs-body-wrapper-undefined {
+    display:flex;
+    flex-direction: row;
+
+    margin-left: 15vw;
+    margin-right: 15vw;
+
+}
+
+.all-bugs-body-wrapper-defined {
+    display:flex;
+    flex-direction: row;
+
+    margin: 10px;
+}
+
+.all-bugs-wrapper-undefined {
+    width: 100%;
+}
+
+.all-bugs-wrapper-defined {
+    width: 40%;
+}
