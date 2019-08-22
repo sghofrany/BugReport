@@ -14,8 +14,11 @@ class AllBugsComponent extends React.Component {
         this.state = {
             loading: true,
             data: [],
-            current: undefined
+            current: undefined,
+            search: ''
         }
+
+        this.filterSearch = this.filterSearch.bind(this);
     }
 
     //testing commit 
@@ -52,7 +55,17 @@ class AllBugsComponent extends React.Component {
  
     }
 
+    filterSearch(e) {
+        this.setState({
+            search: e.target.value
+        })
+    }
+
     render() {
+
+        const filter = this.state.data.filter( (bug) => {
+            return bug.title.toLowerCase().indexOf( this.state.search.toLowerCase() ) !== -1;
+        } )
 
         return (
             <div className={this.state.current === undefined ? "all-bugs-body-wrapper-undefined" : "all-bugs-body-wrapper-defined"}>
@@ -60,11 +73,11 @@ class AllBugsComponent extends React.Component {
                 <div className={this.state.current === undefined ? "all-bugs-wrapper-undefined" : "all-bugs-wrapper-defined"}>
                     
                 <div className="search-wrapper">
-                    <input placeholder="Search" />
+                    <input placeholder="Search" onChange={this.filterSearch}/>
                 </div>
                     
                     {
-                        this.state.data.map(bug => (
+                        filter.map(bug => (
 
                             <BugComponent
                                 clickBug={this.selectCurrentBug.bind(this, bug.id)}
