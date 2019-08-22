@@ -19,7 +19,7 @@ Then you need to start the reactjs server while in the /client folder using:
 npm start
 ```
 
-#API end points
+# API end points
 
 To view the data that is hard-coded in the API you can look directly into the BugReport/server.js file or,
 check ```http://localhost:5000/api/bugs``` 
