@@ -22,3 +22,36 @@
 .all-bugs-wrapper-defined {
     width: 40%;
 }
+
+.search-wrapper {
+    width: 100%;
+    margin-bottom: 10px;
+
+    padding: 0;
+}
+
+.search-wrapper input {
+    width: 100%;
+
+    background-color: rgb(87, 106, 119);
+
+    border-radius: 8px;
+    box-sizing: border-box;
+
+    border-radius: 8px; 
+    border: 3px solid #44515A;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    padding-right: 0;
+    padding-left: 0;
+
+    margin: 0;
+
+    color: white;
+    text-align: center;
+}
+
+.search-wrapper input::placeholder {
+    color:white;
+}

@@ -56,8 +56,13 @@ class AllBugsComponent extends React.Component {
 
         return (
             <div className={this.state.current === undefined ? "all-bugs-body-wrapper-undefined" : "all-bugs-body-wrapper-defined"}>
-
+                
                 <div className={this.state.current === undefined ? "all-bugs-wrapper-undefined" : "all-bugs-wrapper-defined"}>
+                    
+                <div className="search-wrapper">
+                    <input placeholder="Search" />
+                </div>
+                    
                     {
                         this.state.data.map(bug => (
 
