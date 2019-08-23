@@ -2,10 +2,30 @@ const express = require('express');
 const cors = require('cors');
 const mysql = require('mysql');
 
+//MySQL connection
+
+const db = mysql.createConnection(
+    {
+        host: "localhost",
+        user: "root",
+        password: "",
+        database: "bugsdb"
+    }
+);
+
+db.connect((err) => {
+    if(err) {
+        console.log(err);
+    }
+
+    console.log("Connected to MySQL Successfully!");
+});
+
 const app = express();
 
-
 app.use(cors());
+
+
 
 app.get('/', (req, res) => {
     res.send('go to /api to see more info')
@@ -36,7 +56,7 @@ app.get('/api/forums', (req, res) => {
         });
 });
 
-app.get('/api/bugs', (req, res) => {
+app.get('/api/bug', (req, res) => {
     res.json({
         "bugs":[    
             {
@@ -152,6 +172,22 @@ app.get('/api/bugs', (req, res) => {
                 "date": "10/18/1997"
             }                  
     ]}  );
+});
+
+app.get('/api/bugs', (req, res) => {
+
+    db.query("SELECT * FROM bug", (err, results) => {
+        
+        if(err) {
+            return res.send("didnt run");
+        } else {
+            return res.json({
+                data: results
+            });
+        }
+
+    });
+
 });
 
 app.listen(5000, () => {
