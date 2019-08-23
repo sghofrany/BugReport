@@ -4,23 +4,6 @@ const mysql = require('mysql');
 
 //MySQL connection
 
-const db = mysql.createConnection(
-    {
-        host: "localhost",
-        user: "root",
-        password: "",
-        database: "bugsdb"
-    }
-);
-
-db.connect((err) => {
-    if(err) {
-        console.log(err);
-    }
-
-    console.log("Connected to MySQL Successfully!");
-});
-
 const app = express();
 
 app.use(cors());
@@ -56,12 +39,12 @@ app.get('/api/forums', (req, res) => {
         });
 });
 
-app.get('/api/bug', (req, res) => {
+app.get('/api/bugs', (req, res) => {
     res.json({
         "bugs":[    
             {
                 "id": 0,
-                "title": "Bug 1",
+                "title": "Title",
                 "body": "This is the body of the forum postThis is the body of the forum BUG 1",
                 "user": "Irantwomiles",
                 "status": "pending",
@@ -85,7 +68,7 @@ app.get('/api/bug', (req, res) => {
             },    
             {
                 "id": 3,
-                "title": "Bug 4",
+                "title": "Bug Testasd",
                 "body": "This is the body of the forumThis is the body of the forum post BUG 4",
                 "user": "Irantwomiles",
                 "status": "solved",
@@ -93,7 +76,7 @@ app.get('/api/bug', (req, res) => {
             },    
             {
                 "id": 4,
-                "title": "Bug 5",
+                "title": "Bug 322fa",
                 "body": "This is the bThis is the body of the forumody of the forum post BUG 4",
                 "user": "Irantwomiles",
                 "status": "solved",
@@ -101,7 +84,7 @@ app.get('/api/bug', (req, res) => {
             },    
             {
                 "id": 5,
-                "title": "Bug 6",
+                "title": "Buasdf342fg 6",
                 "body": "This is the This is the body of the forumThis is the body of the forumThis is the body of the forumbody of the forum post BUG 4",
                 "user": "Irantwomiles",
                 "status": "solved",
@@ -109,7 +92,7 @@ app.get('/api/bug', (req, res) => {
             },    
             {
                 "id": 6,
-                "title": "Bug 7",
+                "title": "Buadsfg 7",
                 "body": "This is tThis is the body of the forumThis is the body of the forumThis is the body of the forumThis is the body of the forumThis is the body of the forumThis is the body of the forumThis is the body of the forumThis is the body of the forumThis is the body of the forumThis is the body of the forumThis is the body of the forumThis is the body of the forumThis is the body of the forumThis is the body of the forumThis is the body of the forumhe body of the forum post BUG 4",
                 "user": "Irantwomiles",
                 "status": "pending",
@@ -125,7 +108,7 @@ app.get('/api/bug', (req, res) => {
             },    
             {
                 "id": 8,
-                "title": "Bug 9",
+                "title": "Buasdf9",
                 "body": "This is the body of the forum post BUG 4",
                 "user": "Irantwomiles",
                 "status": "solved",
@@ -133,7 +116,7 @@ app.get('/api/bug', (req, res) => {
             },    
             {
                 "id": 9,
-                "title": "Bug 10",
+                "title": "Bugfew 10",
                 "body": "This is the body of the This is the body of the forumThis is the body of the forumThis is the body of the forumThis is the body of the forumThis is the body of the forumThis is the body of the forumThis is the body of the forumThis is the body of the forumforum post BUG 4",
                 "user": "Irantwomiles",
                 "status": "solved",
@@ -149,7 +132,7 @@ app.get('/api/bug', (req, res) => {
             },    
             {
                 "id": 11,
-                "title": "Bug 12",
+                "title": "Bug21 asdf asdf12",
                 "body": "This is the body of the forum This is the body of the forum This is the body of the forum This is the body of the forum This is the body of the forum This is the body of the forum This is the body of the forum This is the body of the forum This is the body of the forum This is the body of the forum This is the body of the forum",
                 "user": "Irantwomiles",
                 "status": "pending",
@@ -157,7 +140,7 @@ app.get('/api/bug', (req, res) => {
             },    
             {
                 "id": 12,
-                "title": "Bug 13",
+                "title": "Bu32g 13",
                 "body": "This is the This is the body of the forumThis is the body of the forumThis is the body of the forumbody of the forum post BUG 4",
                 "user": "Irantwomiles",
                 "status": "solved",
@@ -165,7 +148,7 @@ app.get('/api/bug', (req, res) => {
             },    
             {
                 "id": 13,
-                "title": "Bug 14",
+                "title": "Bu43g 14",
                 "body": "TThis is the body of the forumThis is the body of the forumThis is the body of the forumThis is the body of the forumThis is the body of the forumhis is the This is the body of the forumThis is the body of the forumThis is the body of the forumbody of the forum post BUG 4",
                 "user": "Irantwomiles",
                 "status": "pending",
@@ -174,22 +157,8 @@ app.get('/api/bug', (req, res) => {
     ]}  );
 });
 
-app.get('/api/bugs', (req, res) => {
+const PORT = process.env.PORT || 5000;
 
-    db.query("SELECT * FROM bug", (err, results) => {
-        
-        if(err) {
-            return res.send("didnt run");
-        } else {
-            return res.json({
-                data: results
-            });
-        }
-
-    });
-
-});
-
-app.listen(5000, () => {
-    console.log("Listening to port 5000...");
+app.listen(PORT, () => {
+    console.log(`Listening to port ${PORT}...`);
 });
