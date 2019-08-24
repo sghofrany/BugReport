@@ -5,11 +5,15 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "heroku-postbuild": "cd client && npm install && npm run build",
+    "client": "cd client && npm run start",
+    "server": "node server.js",
+    "start": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Shayan Ghofrany",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^4.1.2",
     "cors": "^2.8.5",
     "create-react-app": "^3.0.1",
     "express": "^4.17.1",
