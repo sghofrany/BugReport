@@ -9,11 +9,6 @@ const app = express();
 app.use(cors());
 
 
-
-app.get('/', (req, res) => {
-    res.send('go to /api to see more info')
-});
-
 app.get('/api/forums', (req, res) => {
     res.json({
         
