@@ -24,7 +24,8 @@ class AllBugsComponent extends React.Component {
     //testing commit 
     //test
     async componentDidMount() {
-        const url = "http://localhost:5000/api/bugs";
+        // const url = "http://localhost:5000/api/bugs";
+        const url = "https://bugreport-shayan.herokuapp.com/api/bugs";
 
         try {
             const response = await fetch(url);
